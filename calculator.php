@@ -171,7 +171,7 @@ class Calculator
     }
 
 
-    
+
     /**
     * Task 6: Negative number not allowed andd show negative number
     */
@@ -237,6 +237,29 @@ class Calculator
 	    }
 
     }
+
+    /**
+    * Task 7: ignore number those ar greather than 1000
+    */
+    public function add_ignore($a=0)
+    {
+    
+		// get no. arg pass by user
+	    $num_arg = func_num_args(); 
+
+	    $addition = 0;
+	    for ($i=0; $i<$num_arg; $i++) 
+	    {
+	    	if(  func_get_arg($i) > 1000)
+	    	{
+	    		continue;
+	    	}
+	    	$addition +=  func_get_arg($i); 
+	    }
+	    echo $addition;
+    }
+
+
 
 
 
