@@ -260,6 +260,24 @@ class Calculator
     }
 
 
+    
+    /**
+    * Task 8: multiply number
+    */
+    public function multiply()
+    {
+    
+		// get no. arg pass by user
+	    $num_arg = func_num_args(); 
+
+	    $multiply = 1;
+	    for ($i=0; $i<$num_arg; $i++) 
+	    {
+	       	$multiply *=  func_get_arg($i); 
+	    }
+	    echo $multiply;
+    }
+
 
 
 
