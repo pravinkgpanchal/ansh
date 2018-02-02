@@ -2,7 +2,7 @@
 
 
 /**
-* Command Caluculator library for calculation
+* Command Calculator library for calculation
 *  Name: Pravin Panchal
 */
 
@@ -21,7 +21,7 @@ class Calculator
     /**
     * Task 2: Capability  to handle multiple numer for addition
     */
-    public function add($a=0)
+    public function add()
     {
     
 		// get no. arg pass by user
@@ -260,7 +260,7 @@ class Calculator
     }
 
 
-    
+
     /**
     * Task 8: multiply number
     */
