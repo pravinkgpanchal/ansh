@@ -171,6 +171,75 @@ class Calculator
     }
 
 
+    
+    /**
+    * Task 6: Negative number not allowed andd show negative number
+    */
+    public function addition_neg_print()
+    {    
+		// get no. arg pass by user
+	    $num_arg = func_num_args(); 
+
+	    $addition = 0;
+	    for ($i=0; $i<$num_arg; $i++) 
+	    {
+	    	/**
+	    	* Find delimiter and use as separator
+	    	*/
+	    	$par =  func_get_arg($i);
+	    	
+	    	
+	    	// Find delimiter
+			$f_occ = strpos($par, "\\");
+			$l_occ = strpos($par, "\\", 2);
+			$delimiter = substr($par,$f_occ+2,$l_occ-2);
+
+
+			// slit inot numbers
+			$arg_arr = explode($delimiter, $par);
+
+			// print_r($arg_arr);
+			$second = explode('\\',$arg_arr[1]);
+			$n = count($second);
+			$second = $second[$n-1];
+
+			$negative_num = array();
+			if($second <0)
+			{
+				$negative_num[] = $second;
+			}
+
+			$addition = $second;
+
+			$remain_arg = count($arg_arr);
+			if($remain_arg>2)
+			{
+
+				for($i=1; $i< $remain_arg ;$i++)
+				{
+					if($arg_arr[$i] <0)
+					{
+						$negative_num[] = $arg_arr[$i];
+					}
+
+					$addition += $arg_arr[$i];
+				}
+			}			
+	    }
+
+	    if(count($negative_num))
+	    {
+	    	echo "Error: Negative numbers [".implode(",", $negative_num)."] not allowed !";
+	    }
+	    else
+	    {
+	    	echo $addition;
+	    }
+
+    }
+
+
+
 }
 
 array_shift($argv);
