@@ -19,9 +19,6 @@ class Calculator
 
 }
 
-
-
-
 array_shift($argv);
 $className = array_shift($argv);
 $funcName = array_shift($argv);
