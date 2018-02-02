@@ -112,6 +112,64 @@ class Calculator
     }
 
 
+    /**
+    * Task 5: Negative number not allowed
+    */
+    public function addition_negative()
+    {    
+		// get no. arg pass by user
+	    $num_arg = func_num_args(); 
+
+	    $addition = 0;
+	    for ($i=0; $i<$num_arg; $i++) 
+	    {
+	    	/**
+	    	* Find delimiter and use as separator
+	    	*/
+	    	$par =  func_get_arg($i);
+	    	
+	    	
+	    	// Find delimiter
+			$f_occ = strpos($par, "\\");
+			$l_occ = strpos($par, "\\", 2);
+			$delimiter = substr($par,$f_occ+2,$l_occ-2);
+
+
+			// slit inot numbers
+			$arg_arr = explode($delimiter, $par);
+
+			// print_r($arg_arr);
+			$second = explode('\\',$arg_arr[1]);
+			$n = count($second);
+			$second = $second[$n-1];
+
+			if($second <0)
+			{
+				echo "Error: Negative number not allowed !";
+				die;
+			}
+
+			$addition = $second;
+
+			$remain_arg = count($arg_arr);
+			if($remain_arg>2)
+			{
+
+				for($i=1; $i< $remain_arg ;$i++)
+				{
+					if($arg_arr[$i] <0)
+					{
+						echo "Error: Negative number not allowed !";
+						die;
+					}
+
+					$addition += $arg_arr[$i];
+				}
+			}			
+	    }
+	    echo $addition;
+    }
+
 
 }
 
