@@ -17,6 +17,25 @@ class Calculator
         echo $sum = $a+$b;
     }
 
+    
+    /**
+    * Task 2: Capability  to handle multiple numer for addition
+    */
+    public function add($a=0)
+    {
+    
+		// get no. arg pass by user
+	    $num_arg = func_num_args(); 
+
+	    $addition = 0;
+	    for ($i=0; $i<$num_arg; $i++) 
+	    {
+	    	$addition +=  func_get_arg($i); 
+	    }
+	    echo $addition;
+    }
+
+
 }
 
 array_shift($argv);
